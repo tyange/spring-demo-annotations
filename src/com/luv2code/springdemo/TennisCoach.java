@@ -7,8 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
+    // Qualifier annotation은 Component annotation이 들어간 특정 컴포넌트를 지정해서 Autowired로 연결한다.
+    // Component annotaion의 name-convention과 똑같이 맨 앞의 문자만 소문자로 변경해서 쓴다.
     @Autowired
-    @Qualifier("happyFortuneService")
+    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
     // define a default constructor
