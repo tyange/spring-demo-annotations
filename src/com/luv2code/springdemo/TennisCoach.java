@@ -2,9 +2,11 @@ package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class TennisCoach implements Coach {
 
     // Qualifier annotation은 Component annotation이 들어간 특정 컴포넌트를 지정해서 Autowired로 연결한다.
