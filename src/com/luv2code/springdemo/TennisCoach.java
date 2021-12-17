@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
 public class TennisCoach implements Coach {
 
     // Qualifier annotation은 Component annotation이 들어간 특정 컴포넌트를 지정해서 Autowired로 연결한다.
@@ -18,6 +20,18 @@ public class TennisCoach implements Coach {
     // define a default constructor
     public TennisCoach() {
         System.out.println(">> TennisCoach: inside default constructor");
+    }
+
+    // define my init method
+    @PostConstruct
+    public void doMyStartupStuff() {
+        System.out.println(">> TennisCoach: inside of doMyStartupStuff");
+    }
+
+    // define my destroy method
+    @PreDestroy
+    public void doMyCleanupStuff() {
+        System.out.println(">> TennisCoach: inside of doMyCleanupStuff");
     }
 
     // define a setter method
